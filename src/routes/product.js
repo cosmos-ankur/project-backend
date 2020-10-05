@@ -1,6 +1,6 @@
 
 const express = require('express');
-const {createProduct} = require('../controller/product');
+const {createProduct,getProductsBySlug} = require('../controller/product');
 const multer = require('multer');
 const shortid = require('shortid');
 const path = require('path');
@@ -19,6 +19,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({storage})
 router.post('/product/create',requireSignin,adminMiddileware, upload.array('productPicture'),createProduct);
+router.get('/products/:slug',getProductsBySlug)
 
 
 module.exports = router
