@@ -9,7 +9,6 @@ function runUpdate(condition, updateData) {
       .catch((err) => reject(err));
   });
 }
-
 exports.addItemToCart = (req, res) => {
   Cart.findOne({ user: req.user._id }).exec((error, cart) => {
     if (error) return res.status(400).json({ error });
@@ -64,6 +63,7 @@ exports.addItemToCart = (req, res) => {
     }
   });
 };
+
 
 // exports.addToCart = (req, res) => {
 //     const { cartItems } = req.body;
